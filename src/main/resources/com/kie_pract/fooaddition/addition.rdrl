@@ -1,0 +1,13 @@
+package com.kie_pract.fooaddition;
+
+import java.lang.Number;
+
+rule "addition"
+	dialect "mvel"
+	when
+		f : Foo( sum == null , n1 : num1, n2 : num2)
+	then
+		modify( f ) {
+				setSum( n1+n2 )
+		}
+end
